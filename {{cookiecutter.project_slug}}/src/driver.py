@@ -51,6 +51,74 @@ class {{cookiecutter.driver_name}} (ResourceDriverInterface):
 
     # </editor-fold>
 
+    def restore(self, context, cancellation_context, path, configuration_type, restore_method):
+        """
+        Restores a configuration file
+        :param ResourceCommandContext context: The context object for the command with resource and reservation info
+        :param CancellationContext cancellation_context: Object to signal a request for cancellation. Must be enabled in drivermetadata.xml as well
+        :param str path: The path to the configuration file, including the configuration file name.
+        :param str restore_method: Determines whether the restore should append or override the current configuration.
+        :param str configuration_type: Specify whether the file should update the startup or running config.
+        """
+        pass
+
+    def save(self, context, cancellation_context, folder_path, configuration_type):
+        """
+        Creates a configuration file and saves it to the provided destination
+        :param ResourceCommandContext context: The context object for the command with resource and reservation info
+        :param CancellationContext cancellation_context: Object to signal a request for cancellation. Must be enabled in drivermetadata.xml as well
+        :param str configuration_type: Specify whether the file should update the startup or running config. Value can one
+        :param str folder_path: The path to the folder in which the configuration file will be saved.
+        :return The configuration file name.
+        :rtype: str
+        """
+        pass
+
+    def load_firmware(self, context, cancellation_context, path):
+        """
+        Upload and updates firmware on the resource
+        :param ResourceCommandContext context: The context object for the command with resource and reservation info
+        :param str path: path to tftp server where firmware file is stored
+        """
+        pass
+
+    def run_custom_command(self, context, cancellation_context, custom_command):
+        """
+        Executes a custom command on the device
+        :param ResourceCommandContext context: The context object for the command with resource and reservation info
+        :param CancellationContext cancellation_context: Object to signal a request for cancellation. Must be enabled in drivermetadata.xml as well
+        :param str custom_command: The command to run. Note that commands that require a response are not supported.
+        :return: the command result text
+        :rtype: str
+        """
+        pass
+
+    def run_custom_config_command(self, context, cancellation_context, custom_command):
+        """
+        Executes a custom command on the device in configuration mode
+        :param ResourceCommandContext context: The context object for the command with resource and reservation info
+        :param CancellationContext cancellation_context: Object to signal a request for cancellation. Must be enabled in drivermetadata.xml as well
+        :param str custom_command: The command to run. Note that commands that require a response are not supported.
+        :return: the command result text
+        :rtype: str
+        """
+        pass
+
+    def shutdown(self, context, cancellation_context):
+        """
+        Sends a graceful shutdown to the device
+        :param ResourceCommandContext context: The context object for the command with resource and reservation info
+        :param CancellationContext cancellation_context: Object to signal a request for cancellation. Must be enabled in drivermetadata.xml as well
+        """
+        pass
+
+    def health_check(self,cancellation_context):
+        """
+        Checks if the device is up and connectable
+        :return: str: Success or fail message
+        """
+        pass
+
     # <editor-fold desc="Orchestration Save and Restore Standard">
     def orchestration_save(self, context, cancellation_context, mode, custom_params):
       """
@@ -127,5 +195,8 @@ class {{cookiecutter.driver_name}} (ResourceDriverInterface):
         return saved_details_object[u'saved_artifact'][u'identifier']
         '''
         pass
+
+
+
 
     # </editor-fold>
