@@ -7,15 +7,15 @@ metadata:
   template_icon: shell-icon.png
 
 description: >
-  TOSCA based cable media appliance shell
+  TOSCA based broadband media appliance shell
 
 imports:
-  - cloudshell_standard: cloudshell_cable_media_standard_1_0_0.yaml
+  - cloudshell_standard: cloudshell_broadband_media_standard_1_0_0.yaml
 
 node_types:
 
   vendor.resource.{{cookiecutter.model_name}}:
-    derived_from: cloudshell.nodes.CableMediaChassis
+    derived_from: cloudshell.nodes.BroadbandMediaChassis
     #properties:
     #  my_property:
     #    type: string          # optional values: string, integer, float, boolean, cloudshell.datatypes.Password
