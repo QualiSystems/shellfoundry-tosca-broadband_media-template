@@ -10,7 +10,7 @@ description: >
   TOSCA based broadband media appliance shell
 
 imports:
-  - cloudshell_standard: cloudshell_broadband_media_standard_1_0_0.yaml
+  - cloudshell_standard: cloudshell_broadband_media_standard_1_0_2.yaml
 
 node_types:
 
